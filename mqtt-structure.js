@@ -18,8 +18,8 @@ function startConnect() {
     // Tìm nạp các thông tin từ form HTML 
     host = document.getElementById("host").value;
     port = document.getElementById("port").value;
-    user = document.getElementById("username").value;
-    pass = document.getElementById("password").value;
+    //user = document.getElementById("username").value;
+    //pass = document.getElementById("password").value;
 
 
     // Print output for the user in the messages div
@@ -35,8 +35,8 @@ function startConnect() {
     // Connect the client, if successful, call onConnect function
     client.connect({ 
         onSuccess: onConnect,
-        userName: user,
-        password: pass,
+        //userName: user,
+        //password: pass,
     });
 }
 
