@@ -3,6 +3,7 @@ var led_is_on    = null;
 var topic="IOT2000/on";
 var topic1="IOT2000/factory/#";
 var topic2="factory/reset";
+var topic3="IOT2000/factory/automanual";
 var curDate = new Date();
 // Ngày hiện tại
 var curDay = curDate.getDate();
@@ -114,4 +115,24 @@ function reset(){
 	message2 = new Paho.MQTT.Message(payload2);
 	message2.destinationName = topic2;
 	client.send(message2);
+}
+function auto_manual()
+{
+    var count =0;
+    count++;
+    if (count%2==0)
+    {
+        payload="true";
+        message = new Paho.MQTT.Message(payload);
+	    message.destinationName = topic3;
+	    client.send(message);
+    }
+    else
+    {
+        count=0;
+        payload="false";
+        message = new Paho.MQTT.Message(payload);
+	    message.destinationName = topic3;
+	    client.send(message);
+    }
 }
